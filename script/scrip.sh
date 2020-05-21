@@ -73,17 +73,17 @@ INSTALLER PROCESS PLEASE WAIT
 TAKE TIME 5-10 MINUTE
 "
 # script
-wget -O /usr/local/bin/menu "http://sadboyhosting.ddns.net/script/menu"
-wget -O /usr/local/bin/m "http://sadboyhosting.ddns.net/script/menu"
-wget -O /usr/local/bin/autokill "http://sadboyhosting.ddns.net/script/autokill"
-wget -O /usr/local/bin/user-generate "http://sadboyhosting.ddns.net/script/user-generate"
-wget -O /usr/local/bin/speedtest "http://sadboyhosting.ddns.net/script/speedtest"
-wget -O /usr/local/bin/user-lock "http://sadboyhosting.ddns.net/script/user-lock"
-wget -O /usr/local/bin/user-unlock "http://sadboyhosting.ddns.net/script/user-unlock"
-wget -O /usr/local/bin/auto-reboot "http://sadboyhosting.ddns.net/script/auto-reboot"
-wget -O /usr/local/bin/user-password "http://sadboyhosting.ddns.net/script/user-password"
-wget -O /usr/local/bin/trial "http://sadboyhosting.ddns.net/script/trial"
-wget -O /etc/pam.d/common-password "http://sadboyhosting.ddns.net/script/common-password"
+wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/msz99/test/master/script/menu"
+wget -O /usr/local/bin/m "https://raw.githubusercontent.com/msz99/test/master/script/menu"
+wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/msz99/test/master/script/autokill"
+wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/msz99/test/master/script/user-generate"
+wget -O /usr/local/bin/speedtest "https://raw.githubusercontent.com/msz99/test/master/script/speedtest"
+wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/msz99/test/master/script/user-lock"
+wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/msz99/test/master/script/user-unlock"
+wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/msz99/test/master/script/auto-reboot"
+wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/msz99/test/master/script/user-password"
+wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/msz99/test/master/script/trial"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/msz99/test/master/script/common-password"
 chmod +x /etc/pam.d/common-password
 chmod +x /usr/local/bin/menu
 chmod +x /usr/local/bin/m
@@ -107,25 +107,25 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 # ssh
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-wget -O /etc/issue.net "http://sadboyhosting.ddns.net/script/banner"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/msz99/test/master/script/banner"
 # dropbear
 apt-get -y install dropbear
-wget -O /etc/default/dropbear "http://sadboyhosting.ddns.net/script/dropbear"
+wget -O /etc/default/dropbear "https://raw.githubusercontent.com/msz99/test/master/script/dropbear"
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 # squid3
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "http://sadboyhosting.ddns.net/script/squid.conf"
-wget -O /etc/squid/squid.conf "http://sadboyhosting.ddns.net/script/squid.conf"
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/msz99/test/master/script/squid.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/msz99/test/master/script/squid.conf"
 sed -i "s/ipserver/$myip/g" /etc/squid3/squid.conf
 sed -i "s/ipserver/$myip/g" /etc/squid/squid.conf
 # openvpn
 apt-get -y install openvpn
 cd /etc/openvpn/
-wget http://sadboyhosting.ddns.net/script/openvpn.tar;tar xf openvpn.tar;rm openvpn.tar
-wget -O /etc/rc.local "http://sadboyhosting.ddns.net/script/rc.local"
+wget https://raw.githubusercontent.com/msz99/test/master/script/openvpn.tar;tar xf openvpn.tar;rm openvpn.tar
+wget -O /etc/rc.local "https://raw.githubusercontent.com/msz99/test/master/script/rc.local"
 chmod +x /etc/rc.local
-#wget -O /etc/iptables.up.rules "http://sadboyhosting.ddns.net/script/iptables.up.rules"
+#wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/msz99/test/master/script/iptables.up.rules"
 #sed -i "s/ipserver/$myip/g" /etc/iptables.up.rules
 #iptables-restore < /etc/iptables.up.rules
 # Badvpn
@@ -168,7 +168,7 @@ apt-get install -y openssl >/dev/null 2>/dev/null
 apt-get install -y build-essential >/dev/null 2>/dev/null
 apt-get install -y cmake >/dev/null 2>/dev/null
 echo -e "\033[1;37mDownloading File Badvpn"; cd
-wget http://sadboyhosting.ddns.net/script/badvpn-1.999.128.tar.bz2 -o /dev/null
+wget https://raw.githubusercontent.com/msz99/test/master/script/badvpn-1.999.128.tar.bz2 -o /dev/null
 echo -e "Extract Badvpn"
 tar -xf badvpn-1.999.128.tar.bz2
 echo -e "Setup configuration"
@@ -185,19 +185,19 @@ rm -rf /etc/badvpn-install
 cd ; rm -rf badvpn.sh badvpn-1.999.128/ badvpn-1.999.128.tar.bz2 >/dev/null 2>/dev/null
 # Stunnel
 apt-get install stunnel4 -y
-wget -P /etc/stunnel/ "http://sadboyhosting.ddns.net/script/stunnel.conf"
+wget -P /etc/stunnel/ "https://raw.githubusercontent.com/msz99/test/master/script/stunnel.conf"
 openssl genrsa -out key.pem 2048
-wget -P /etc/stunnel/ "http://sadboyhosting.ddns.net/script/stunnel.pem"
+wget -P /etc/stunnel/ "https://raw.githubusercontent.com/msz99/test/master/script/stunnel.pem"
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 # nginx
 apt-get -y install nginx php5-fpm php5-cli libexpat1-dev libxml-parser-perl
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "http://sadboyhosting.ddns.net/script/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/msz99/test/master/script/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<pre>SETUP BY JACK PM +60176777798</pre>" > /home/vps/public_html/index.php
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
-wget -O /etc/nginx/conf.d/vps.conf "http://sadboyhosting.ddns.net/script/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/msz99/test/master/script/vps.conf"
 sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
 # install vnstat gui
 apt-get install vnstat
@@ -217,8 +217,8 @@ service vnstat restart
 sudo apt update
 sudo apt install apache2
 # etc
-wget -O /var/www/html/client.ovpn "http://sadboyhosting.ddns.net/script/client.ovpn"
-wget -O /etc/motd "http://sadboyhosting.ddns.net/script/motd"
+wget -O /var/www/html/client.ovpn "https://raw.githubusercontent.com/msz99/test/master/script/client.ovpn"
+wget -O /etc/motd "https://raw.githubusercontent.com/msz99/test/master/script/motd"
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 sed -i 's/1194/443/g' /etc/openvpn/server.conf
 sed -i '$ i\port-share 0.0.0.0 444' /etc/openvpn/server.conf
@@ -233,14 +233,14 @@ apt-get -y install freeradius
 cat /dev/null > /etc/freeradius/users
 echo "jack Cleartext-Password := jack" > /etc/freeradius/users
 # Lock Dropbear Expired ID
-wget -O /usr/local/bin/lockidexp.sh "http://sadboyhosting.ddns.net/script/lockidexp.sh"
+wget -O /usr/local/bin/lockidexp.sh "https://raw.githubusercontent.com/msz99/test/master/script/lockidexp.sh"
 chmod +x /usr/local/bin/lockidexp.sh
 crontab -l > mycron
 echo "1 8 * * * /usr/local/bin/lockidexp.sh" >> mycron
 crontab mycron
 rm mycron
 # BlockTorrent
-wget -O /usr/local/bin/BlockTorrentEveryReboot "http://sadboyhosting.ddns.net/script/BlockTorrentEveryReboot"
+wget -O /usr/local/bin/BlockTorrentEveryReboot "https://raw.githubusercontent.com/msz99/test/master/script/BlockTorrentEveryReboot"
 chmod +x /usr/local/bin/BlockTorrentEveryReboot
 crontab -l > mycron
 echo "@reboot /usr/local/bin/BlockTorrentEveryReboot" >> mycron
